@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "research.p2p.stateunion.com.research"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resValue("string", "growingio_project_id", "8aefe39d6366af2a")
+        resValue("string", "growingio_url_scheme", "growing.8e514bf9c29cfc0d")
+        //growingio end
+        multiDexEnabled true
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', "armeabi-v7a", "x86_64"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        flavorDimensions 'environment', 'channel'
+        productFlavors {
+            xsh01 {
+                dimension 'channel'
+                manifestPlaceholders = [FRIEND_ID_VALUE: "MjExOTEzOQ==", SHUZILM: "华为", app_name: "易通贷理财-投资赚钱"]
+            }
+            beta {//测试
+                dimension "environment"
+                manifestPlaceholders = [JPUSH_APPKEY: "ae78ce3ed58bb707d8676be2"]
+                buildConfigField 'String', 'WX_APP_ID', '"wx579c55de139b0b31"'
+                buildConfigField 'String', 'WEBVIEW_BASE_URL', '"https://baidu.com"'
+                buildConfigField 'String', 'KEYBOARD_PUBLIC_KEY', '"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSEygln/oB9FmMvR1BTxtgIMLOLPm90SNZcEop1Kd8nSTuwSezVQCtNUOq0zuCuv2liP0AWqhYgPciyVrDV2XOeXH0tw6aj3NiImaJ8IqcvnqCbC7fywuwBF6i2MnXD9dLdeIM/+iJ9uGDC+ZF+eAFmuDRpa+0felFeflO06ZuPwIDAQAB"'
+            }
+            product {//正式环境
+                dimension "environment"
+                manifestPlaceholders = [JPUSH_APPKEY: "aa139a1fc561a3c345dbf536"]
+                buildConfigField 'String', 'WX_APP_ID', '"wx579c55de139b0b31"'
+                buildConfigField 'String', 'WEBVIEW_BASE_URL', '"http://m.etongdai.com/"'
+                buildConfigField 'String', 'KEYBOARD_PUBLIC_KEY', '"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDe85G79FkpCymgQ3jPZ5qftwFsuNpMGka8+3/JpVfe728tqAO+DQHrDroaNqu6tW6XdfhBvUir7DgLq0ZE1Zlz/HwLphLhy9a0ZEoeq3SzSw9PFQAYVc9ayIclTgcfaF6T6ENGm1NodnE9YQ24N8KoaheYdc9e1woyHnecBZodBwIDAQAB"'
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.github.ihsanbal:LoggingInterceptor:1.0.5'
+    compile 'com.growingio.android:vds-android-agent:0.9.104@aar'
+    compile 'com.android.support:multidex:1.0.1'
+    compile files('libs/tbs_sdksmmt.jar')
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+}

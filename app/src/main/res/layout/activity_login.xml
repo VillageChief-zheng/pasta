@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="1">
+    <com.stateunion.p2p.research.widget.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:nvTitle="登录"
+        android:id="@+id/title"
+        ></com.stateunion.p2p.research.widget.NavigationView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:id="@+id/linear_name"
+    android:layout_below="@+id/title"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账户:"
+        android:textSize="@dimen/text_twenty_tow"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        />
+    <EditText
+        android:id="@+id/ed_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:hint="请输入用户名"
+        />
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_below="@+id/linear_name"
+    android:id="@+id/linearLayout">
+
+    <TextView
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码:"
+        android:textSize="@dimen/text_twenty_tow"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        />
+    <EditText
+        android:id="@+id/ed_psw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="请输入密码"
+        />
+</LinearLayout>
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginLeft="111dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="80dp"
+        android:text="登录" />
+</RelativeLayout>

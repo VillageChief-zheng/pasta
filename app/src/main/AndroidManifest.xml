@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="research.p2p.stateunion.com.research">
+<application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+    android:theme="@style/AppTheme.Translucent"
+
+        >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleStyle"
+
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+            <!-- growingIO分析 -->
+            <intent-filter>
+                <data android:scheme="growing.suisuibiabian" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+   <activity android:name="com.stateunion.p2p.research.activity.login.LoginActivity"
+       android:configChanges="mcc|mnc"
+       android:launchMode="singleTask"
+       android:screenOrientation="portrait"
+       android:theme="@style/NoTitleStyle"
+       ></activity>
+
+
+
+     </application>
+
+</manifest>
